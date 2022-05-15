@@ -1,0 +1,141 @@
+<!-- Page Wrapper -->
+            <div class="page-wrapper">
+			
+				<!-- Page Content -->
+                <div class="content container-fluid">
+					
+					<!-- Page Header -->
+					<div class="row">
+						<div class="col-md-12">
+							<div class="page-head-box">
+								<h3>Daily Report</h3>
+								<nav aria-label="breadcrumb">
+									<ol class="breadcrumb">
+										<li class="breadcrumb-item"><a routerLink="/layout/dashboard/admin">Dashboard</a></li>
+										<li class="breadcrumb-item active" aria-current="page">Daily Report</li>
+									</ol>
+								</nav>
+							</div>
+						</div>
+					</div>
+					<!-- /Page Header -->
+
+					<div class="row">
+						<div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+							<div class="card flex-fill tickets-card">
+								<div class="card-header">
+									<div class="text-center w-100 p-3">
+										<h3 class="bl-text mb-1">101</h3>
+										<h2>Total Employees</h2>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+							<div class="card flex-fill tickets-card">
+								<div class="card-header">
+									<div class="text-center w-100 p-3">
+										<h3 class="bl-text mb-1">84</h3>
+										<h2>Today Present</h2>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+							<div class="card flex-fill tickets-card">
+								<div class="card-header">
+									<div class="text-center w-100 p-3">
+										<h3 class="bl-text mb-1">12</h3>
+										<h2>Today Absent</h2>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+							<div class="card flex-fill tickets-card">
+								<div class="card-header">
+									<div class="text-center w-100 p-3">
+										<h3 class="bl-text mb-1">5</h3>
+										<h2>Today Left</h2>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					
+
+					<!-- Search Filter -->
+					<div class="row filter-row">
+						
+                        <div class="col-sm-6 col-md-3">  
+							<div class="form-group form-focus focused mb-0">
+								<div class="cal-icon">
+									<input class="form-control floating datetimepicker" type="text" bsDatepicker>
+								</div>
+								<label class="focus-label">From</label>
+							</div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">  
+							<div class="form-group form-focus focused mb-0">
+								<div class="cal-icon">
+									<input class="form-control floating datetimepicker" type="text" bsDatepicker>
+								</div>
+								<label class="focus-label">To</label>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3">
+							<a class="btn btn-success btn-search"><i class="fas fa-search me-2"></i> Search </a>
+						</div>
+						<div class="col-sm-6 col-md-3">
+							<div class="add-emp-section">
+								<a class="btn btn-success btn-add-emp"> PDF</a>
+							</div>
+						</div>
+                    </div>
+					<!-- Search Filter -->
+
+					<!-- Content Starts -->
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table-responsive">
+								<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                    class="table table-striped custom-table datatable mb-0">
+									<thead>
+										<tr>
+											<th>Employee</th>
+											<th>Date</th>
+											<th>Department</th>
+											<th class="text-center">Status</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr *ngFor="let item of lstDailyreport">
+											<td>
+												<h2 class="table-avatar">
+													<a routerLink="/layout/profile/profilelist" class="avatar"><img alt="" src="assets/img/profiles/avatar-02.jpg"></a>
+													<a routerLink="/layout/profile/profilelist">{{item.name1}} <span>{{item.name2}}</span></a>
+												</h2>
+											</td>
+											<td>{{item.date}}</td>
+											<td>{{item.department}}</td>
+											<td class="text-center">
+												<button *ngIf="item.status ==='Week off'" class="btn btn-outline-info btn-sm">{{item.status}}</button>
+												<button *ngIf="item.status ==='Absent'" class="btn btn-outline-danger btn-sm">{{item.status}}</button>
+											</td>
+										</tr>
+										
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					
+                
+					<!-- /Content End -->
+					
+                </div>
+				<!-- /Page Content -->
+				
+            </div>
+			<!-- /Page Wrapper -->

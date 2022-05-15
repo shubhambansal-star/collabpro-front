@@ -1,0 +1,93 @@
+<!-- Page Wrapper -->
+            <div class="page-wrapper">
+			
+				<!-- Page Content -->
+                <div class="content container-fluid">
+					
+					<!-- Page Header -->
+					<div class="row">
+						<div class="col-md-12">
+							<div class="page-head-box">
+								<h3>Attendance Reports</h3>
+								<nav aria-label="breadcrumb">
+									<ol class="breadcrumb">
+										<li class="breadcrumb-item"><a routerLink="/layout/dashboard/admin">Dashboard</a></li>
+										<li class="breadcrumb-item active" aria-current="page">Attendance Reports</li>
+									</ol>
+								</nav>
+							</div>
+						</div>
+					</div>
+					<!-- /Page Header -->
+
+					<!-- Content Starts -->
+					<!-- Search Filter -->
+					<div class="row filter-row mb-4">
+						<div class="col-sm-6 col-md-3"> 
+							<div class="form-group form-focus select-focus mb-0">
+								<select class="form-select floating form-control"> 
+									<option>Select Department</option>
+									<option>Designing</option>
+									<option>Development</option>
+									<option>Finance</option>
+									<option>Hr & Finance</option>
+								</select>
+								<label class="focus-label">Department</label>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3">  
+							<div class="form-group form-focus mb-0">
+								<div class="cal-icon">
+									<input class="form-control floating datetimepicker" type="text">
+								</div>
+								<label class="focus-label">From</label>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3">  
+							<div class="form-group form-focus mb-0">
+								<div class="cal-icon">
+									<input class="form-control floating datetimepicker" type="text">
+								</div>
+								<label class="focus-label">To</label>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3">  
+							<a class="btn btn-success btn-search"><i class="fas fa-search me-2"></i> Search </a>
+						</div>     
+                    </div>
+					<!-- /Search Filter -->
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table-responsive">
+								<table class="table table-striped custom-table">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>Date</th>
+											<th>Clock In</th>
+											<th>Clock Out</th>
+											<th>Work Status</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr *ngFor="let students of lstStudents;let i = index">
+											<td>{{students.id}}</td>
+											<td>{{students.date}}</td>
+											<td>{{students.clockin}}</td>
+											<td>{{students.clockout}}</td>
+											<td>{{students.workstatus}}</td>
+										</tr>
+										
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+                
+					<!-- /Content End -->
+					
+                </div>
+				<!-- /Page Content -->
+				
+            </div>
+			<!-- /Page Wrapper -->

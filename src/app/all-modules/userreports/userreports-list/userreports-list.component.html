@@ -1,0 +1,98 @@
+<!-- Page Wrapper -->
+            <div class="page-wrapper">
+			
+				<!-- Page Content -->
+                <div class="content container-fluid">
+
+					<!-- Page Header -->
+					<div class="row">
+						<div class="col-md-12">
+							<div class="page-head-box">
+								<h3>User Reports</h3>
+								<nav aria-label="breadcrumb">
+									<ol class="breadcrumb">
+										<li class="breadcrumb-item"><a routerLink="/layout/dashboard/admin">Dashboard</a></li>
+										<li class="breadcrumb-item active" aria-current="page">User Reports</li>
+									</ol>
+								</nav>
+							</div>
+						</div>
+					</div>
+					<!-- /Page Header -->
+					
+					<!-- Content Starts -->
+					<!-- Search Filter -->
+					<div class="row filter-row">
+						
+						<div class="col-sm-6 col-md-3">  
+							<div class="form-group form-focus mb-0">
+								<select class="form-select form-control floating">
+									<option>
+										Name1
+									</option>
+									<option>
+										Name2
+									</option>
+								</select>
+								<label class="focus-label">User Role</label>
+							</div>
+						</div>
+					
+						<div class="col-sm-6 col-md-3">  
+							<a class="btn btn-success btn-search"><i class="fas fa-search me-2"></i> Search </a>
+						</div>     
+                    </div>
+					<!-- /Search Filter -->
+					
+						<!-- Content Starts -->
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table-responsive">
+								<table class="table table-striped custom-table">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>Name</th>
+											<th>Company</th>
+											<th>Email</th>
+											<th>Role</th>
+											<th>Designation</th>
+											<th>Status</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr *ngFor="let students of lstStudents;let i = index">
+											<td>{{students.id}}</td>
+											<td>
+												<h2 class="table-avatar">
+													<a routerLink="/layout/profile/profilelist" class="avatar"><img src="assets/img/profiles/avatar-19.jpg" alt=""></a>
+													<a routerLink="/layout/profile/profilelist">{{students.name1}} <span>{{students.name2}}</span></a>
+												</h2>
+											</td>
+											<td>{{students.company}}</td>
+											<td>{{students.email}}</td>
+											<td>
+												<span class="role-info role-bg-one">{{students.role}}</span>
+											</td>
+											<td>{{students.designation}}</td>
+											<td>
+												<div class="dropdown action-label">
+													<a class="role-info role-bg-two"> {{students.status}} </a>
+													
+												</div>
+											</td>
+										</tr>
+										
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+                
+					<!-- /Content End -->
+					
+                </div>
+				<!-- /Page Content -->
+				
+            </div>
+			<!-- /Page Wrapper -->

@@ -1,0 +1,169 @@
+
+<!-- Page Content -->
+<div class="content container-fluid">
+
+    <!-- Page Header -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-head-box">
+                <h3>View Message</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a routerLink="/layout/dashboard/admin">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">View Message</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- /Page Header -->
+
+    <div class="row">
+        <div class="col-md-4 col-lg-3">
+            <div class="card settings-menu">
+                <div class="sidebar-menu">
+                    <ul>
+                        <li>
+                            <div class="add-emp-section">
+                                <a routerLink="/layout/apps/compose" class="btn btn-success btn-add-emp"><i class="fas fa-plus"></i> Compose</a>
+                            </div>
+                        </li>
+                        <li class="mt-4"> 
+                            <a routerLink="/layout/apps/email" class="active">Inbox <span class="mail-count">(21)</span></a>
+                        </li>
+                        <li> 
+                            <a>Starred</a>
+                        </li>
+                        <li> 
+                            <a>Sent Mail</a>
+                        </li>
+                        <li> 
+                            <a>Draft <span class="mail-count">(8)</span></a>
+                        </li>
+                        <li> 
+                            <a>Trash</a>
+                        </li>
+                        <li class="menu-title">Label <a><i class="fa fa-plus"></i></a></li>
+                        <li> 
+                            <a><i class="fa fa-circle text-success mail-label w-auto"></i> Work</a>
+                        </li>
+                        <li> 
+                            <a><i class="fa fa-circle text-danger mail-label w-auto"></i> Office</a>
+                        </li>
+                        <li> 
+                            <a><i class="fa fa-circle text-warning mail-label w-auto"></i> Personal</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-lg-9 settings-cont">
+            <div class="card">
+                <div class="card-body">
+                    <div class="mailview-content">
+                        <div class="mailview-header">
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <div class="text-ellipsis m-b-10">
+                                        <span class="mail-view-title">HRMS Bootstrap Admin Template</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="mail-view-action">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-white btn-sm" tooltip="Delete"> <i class="far fa-trash-alt"></i></button>
+                                            <button type="button" class="btn btn-white btn-sm" tooltip="Reply"> <i class="fa fa-reply"></i></button>
+                                            <button type="button" class="btn btn-white btn-sm" tooltip="Forward"> <i class="fa fa-share"></i></button>
+                                        </div>
+                                        <button type="button" class="btn btn-white btn-sm" tooltip="Print"> <i class="fa fa-print"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sender-info">
+                                <div class="sender-img">
+                                    <img width="40" alt="" src="assets/img/profiles/avatar-02.jpg"
+                                        class="rounded-circle">
+                                </div>
+                                <div class="receiver-details float-start">
+                                    <span class="sender-name">John Doe (johnjoe@example.com)</span>
+                                    <span class="receiver-name">
+                                        to
+                                        <span>me</span>, <span>Richard</span>, <span>Paul</span>
+                                    </span>
+                                </div>
+                                <div class="mail-sent-time">
+                                    <span class="mail-time">18 Feb 2019 9:42 AM</span>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="mailview-inner">
+                            <p>Hello Richard,</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                                est laborum.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                                est laborum.</p>
+                            <p>Thanks,<br>
+                                John Doe</p>
+                        </div>
+                    </div>
+                    <div class="mail-attachments">
+                        <p><i class="fa fa-paperclip"></i> 2 Attachments - <a href="javascript:void(0)">View all</a> | <a
+                                href="javascript:void(0)">Download all</a></p>
+                        <ul class="attachments clearfix">
+                            <li>
+                                <div class="attach-file"><i class="far fa-file-pdf"></i></div>
+                                <div class="attach-info"> <a class="attach-filename">daily_meeting.pdf</a>
+                                    <div class="attach-fileize"> 842 KB</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="attach-file"><i class="far fa-file-word"></i></div>
+                                <div class="attach-info"> <a class="attach-filename">documentation.docx</a>
+                                    <div class="attach-fileize"> 2,305 KB</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="attach-file"><img src="assets/img/placeholder.jpg" alt="Attachment"></div>
+                                <div class="attach-info"> <a class="attach-filename">webdesign.png</a>
+                                    <div class="attach-fileize"> 1.42 MB</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="attach-file"><img src="assets/img/placeholder.jpg" alt="Attachment"></div>
+                                <div class="attach-info"> <a class="attach-filename">webdevelopment.png</a>
+                                    <div class="attach-fileize"> 1.1 MB</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mailview-footer">
+                        <div class="row">
+                            <div class="col-sm-6 left-action">
+                                <button type="button" class="btn btn-white"><i class="fa fa-reply"></i> Reply</button>
+                                <button type="button" class="btn btn-white"><i class="fa fa-share"></i> Forward</button>
+                            </div>
+                            <div class="col-sm-6 right-action">
+                                <button type="button" class="btn btn-white"><i class="fa fa-print"></i> Print</button>
+                                <button type="button" class="btn btn-white"><i class="far fa-trash-alt"></i>
+                                    Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Page Content -->
+
+
+<!-- /Page Wrapper -->

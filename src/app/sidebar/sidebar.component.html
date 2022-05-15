@@ -1,0 +1,402 @@
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-left slimscroll">
+        <perfect-scrollbar [scrollIndicators]="false">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a [ngClass]="{ 'active' : urlComplete.mainUrl === 'dashboard' }" class="nav-link" id="v-pills-dashboard-tab" data-bs-toggle="pill" title="Dashboard" href="#v-pills-dashboard" role="tab" aria-controls="v-pills-dashboard" aria-selected="true">
+                    <span class="material-icons-outlined">
+                        home
+                    </span>
+                </a>
+                
+                <a [ngClass]="{ 'active' : urlComplete.mainUrl === 'employees' && urlComplete.subUrl === 'employeepage' 
+                || urlComplete.mainUrl === 'employees' && urlComplete.subUrl === 'holidays' || urlComplete.mainUrl === 'employees' && urlComplete.subUrl === 'adminleaves'
+               || urlComplete.mainUrl === 'employees' && urlComplete.subUrl === 'employeeleaves' || urlComplete.mainUrl === 'employees' && urlComplete.subUrl === 'leavesettings'
+               || urlComplete.mainUrl === 'employees' && urlComplete.subUrl === 'attendanceadmin' || urlComplete.mainUrl === 'employees' && urlComplete.subUrl === 'attendanceemployee'
+               || urlComplete.mainUrl === 'employees' && urlComplete.subUrl === 'departments' || urlComplete.mainUrl === 'employees' && urlComplete.subUrl === 'designation'
+               || urlComplete.mainUrl === 'employees' && urlComplete.subUrl === 'timesheet' || urlComplete.mainUrl === 'employees' && urlComplete.subUrl === 'overtime' 
+               || urlComplete.mainUrl === 'employees' && urlComplete.subUrl === 'employeelist'  || urlComplete.mainUrl === 'scheduling'  || urlComplete.mainUrl === 'shift' }" class="nav-link" id="v-pills-employees-tab" title="Employees" data-bs-toggle="pill" href="#v-pills-employees" role="tab" aria-controls="v-pills-employees" aria-selected="false">
+                    <span class="material-icons-outlined">
+                        people
+                    </span>
+                </a>
+                <a [ngClass]="{ 'active' : urlComplete.subUrl === 'clientspage' || urlComplete.subUrl === 'clientslist' }" class="nav-link" id="v-pills-clients-tab" title="Clients" data-bs-toggle="pill" href="#v-pills-clients" role="tab" aria-controls="v-pills-clients" aria-selected="false">
+                    <span class="material-icons-outlined">
+                        person
+                    </span>
+                </a>
+                <a [ngClass]="{ 'active' : urlComplete.mainUrl === 'projects' || urlComplete.subUrl === 'projectlist'|| urlComplete.subUrl === 'projectview' }" class="nav-link" id="v-pills-projects-tab" title="Projects" data-bs-toggle="pill" href="#v-pills-projects" role="tab" aria-controls="v-pills-projects" aria-selected="false">
+                    <span class="material-icons-outlined">
+                        topic
+                    </span>
+                </a>
+                <a [ngClass]="{ 'active' : urlComplete.mainUrl === 'jobs' || urlComplete.mainUrl === 'manageresume' || urlComplete.mainUrl === 'experience' || urlComplete.mainUrl === 'studentcandidate' || urlComplete.mainUrl === 'interview' || urlComplete.mainUrl === 'userdashboard' || urlComplete.mainUrl === 'visitedjobs' || urlComplete.mainUrl === 'offeredjobs' || urlComplete.mainUrl === 'useralljobs' || urlComplete.mainUrl === 'archivedjobs' || urlComplete.mainUrl === 'appliedjobs' || urlComplete.mainUrl === 'savedjobs' || urlComplete.mainUrl === 'jobsdashboard' || urlComplete.mainUrl === 'candidate' || urlComplete.mainUrl === 'offer' || urlComplete.mainUrl === 'scheduletiming' || urlComplete.mainUrl === 'aptitute' || urlComplete.mainUrl === 'interviewing' }" class="nav-link" id="v-pills-jobs-tab" title="Jobs" data-bs-toggle="pill" href="#v-pills-jobs" role="tab" aria-controls="v-pills-jobs" aria-selected="false">
+                    <span class="material-icons-outlined">
+                        work_outline
+                    </span>
+                </a>
+                <div *ngIf="toCheckAdmin(role)">
+                <a [ngClass]="{'active' : urlComplete.subUrl === 'user-main'}" class="nav-link" id="v-pills-users-tab" title="Users" data-bs-toggle="pill" href="#v-pills-users" role="tab" aria-controls="v-pills-users" aria-selected="false">
+                    <span class="material-icons-outlined">
+                        group_add
+                    </span>
+                </a>
+            </div>
+                <div *ngIf="toCheckAdmin(role)">
+                <a [ngClass]="{'active' : urlComplete.subUrl === 'company-settings'}" class="nav-link" id="v-pills-settings-tab" title="Settings" data-bs-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                    <span class="material-icons-outlined">
+                        settings
+                    </span>
+                </a>
+            </div>
+                <a [ngClass]="{ 'active' : urlComplete.mainUrl === 'employees' && urlComplete.subUrl === 'employeeprofile' || urlComplete.mainUrl === 'clients' && urlComplete.subUrl === 'clientsprofile'}" class="nav-link" id="v-pills-profile-tab" title="Profile" data-bs-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                    <span class="material-icons-outlined">
+                        manage_accounts
+                    </span>
+                </a>
+                
+
+                <a [ngClass]="{ 'active' : urlComplete.mainUrl === 'forms' }" class="nav-link" id="v-pills-forms-tab" title="Forms" data-bs-toggle="pill" href="#v-pills-forms" role="tab" aria-controls="v-pills-forms" aria-selected="false">
+                    <span class="material-icons-outlined">
+                        view_day
+                    </span>
+                </a>
+                <a [ngClass]="{ 'active' : urlComplete.mainUrl === 'tables' }" class="nav-link" id="v-pills-tables-tab" title="Tables" data-bs-toggle="pill" href="#v-pills-tables" role="tab" aria-controls="v-pills-tables" aria-selected="false">
+                    <span class="material-icons-outlined">
+                        table_rows
+                    </span>
+                </a>
+            </div>
+        </perfect-scrollbar>
+    </div>
+    <div class="sidebar-right">
+        <div class="tab-content" id="v-pills-tabContent">
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'dashboard' }" class="tab-pane fade" id="v-pills-dashboard" role="tabpanel" aria-labelledby="v-pills-dashboard-tab">
+                <p>Dashboard</p>
+                <ul>
+                    <li routerLink="/layout/dashboard/admin" *ngIf="toCheckAdmin(role)"><a [ngClass]="{ 'active' : urlComplete.subUrl === 'admin' }" href="javascript:">Admin Dashboard</a></li>
+                    <li routerLink="/layout/dashboard/employee" *ngIf="toCheckEmployee(role)"><a [ngClass]="{ 'active' : urlComplete.subUrl === 'employee' }" href="javascript:">Employee Dashboard</a></li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.subUrl === 'overtime' || urlComplete.subUrl === 'timesheet' || urlComplete.subUrl === 'designation' || urlComplete.subUrl === 'departments' || urlComplete.subUrl === 'attendanceemployee' || urlComplete.subUrl === 'attendanceadmin' || urlComplete.subUrl === 'leavesettings' || urlComplete.subUrl === 'employeeleaves' || urlComplete.subUrl === 'adminleaves' || urlComplete.subUrl === 'holidays' || urlComplete.subUrl === 'employeepage' || urlComplete.subUrl === 'employeelist' || urlComplete.subUrl === 'shift-scheduling' || urlComplete.subUrl === 'shift-list' }" class="tab-pane fade" id="v-pills-employees" role="tabpanel" aria-labelledby="v-pills-employees-tab">
+                <p>Employees</p>
+                <ul>
+                    <li routerLink="/layout/employees/employeepage" *ngIf="toCheckAdmin(role)">
+                        <a href="javascript:"
+                            [ngClass]="{ 'active' : urlComplete.subUrl === 'employeepage' || urlComplete.subUrl === 'employeelist'}">All Employees</a>
+                    </li>
+                    <li routerLink="/layout/employees/holidays">
+                        <a href="javascript:"
+                            [ngClass]="{ 'active' : urlComplete.subUrl === 'holidays'}">Holidays</a>
+                    </li>
+                    <li routerLink="/layout/employees/adminleaves" *ngIf="toCheckAdmin(role)">
+                        <a href="javascript:"
+                            [ngClass]="{ 'active' : urlComplete.subUrl === 'adminleaves'}">Leaves<span
+                                class="badge rounded-pill bg-primary float-end">1</span></a>
+                    </li>
+                    <li routerLink="/layout/employees/employeeleaves" *ngIf="toCheckEmployee(role)">
+                        <a href="javascript:"
+                            [ngClass]="{ 'active' : urlComplete.subUrl === 'employeeleaves'}">Leaves
+                        </a>
+                    </li>
+                    <li routerLink="/layout/employees/leavesettings" *ngIf="toCheckAdmin(role)">
+                        <a href="javascript:"
+                            [ngClass]="{ 'active' : urlComplete.subUrl === 'leavesettings'}"
+                            >Leave Settings</a>
+                    </li>
+                    <li routerLink="/layout/employees/attendanceadmin" *ngIf="toCheckAdmin(role)">
+                        <a href="javascript:"
+                            [ngClass]="{ 'active' : urlComplete.subUrl === 'attendanceadmin'}">Attendance
+                        </a>
+                    </li>
+                    <li routerLink="/layout/employees/attendanceemployee" *ngIf="toCheckEmployee(role)">
+                        <a href="javascript:"
+                            [ngClass]="{ 'active' : urlComplete.subUrl === 'attendanceemployee'}">Attendance
+                        </a>
+                    </li>
+                    <li routerLink="/layout/employees/departments" *ngIf="toCheckAdmin(role)">
+                        <a href="javascript:"
+                            [ngClass]="{ 'active' : urlComplete.subUrl === 'departments'}">Departments</a>
+                    </li>
+                    <li routerLink="/layout/employees/designation" *ngIf="toCheckAdmin(role)">
+                        <a href="javascript:"
+                            [ngClass]="{ 'active' : urlComplete.subUrl === 'designation'}">Designations</a>
+                    </li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.subUrl === 'clientspage' }" class="tab-pane fade" id="v-pills-clients" role="tabpanel" aria-labelledby="v-pills-clients-tab">
+                <p>Clients</p>
+                <ul>
+                    <li routerLink="/layout/clients/clientspage"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'clientspage'}">Clients</a></li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'projects' }" class="tab-pane fade" id="v-pills-projects" role="tabpanel" aria-labelledby="v-pills-projects-tab">
+                <p>Projects</p>
+                <ul>
+                    <li routerLink="/layout/projects/projectpage"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'projectpage'|| urlComplete.subUrl === 'projectlist'|| urlComplete.subUrl === 'projectview'}">Projects</a></li>
+                    <li routerLink="/layout/projects/tasks"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'tasks'}">Tasks</a></li>
+                    <li routerLink="/layout/projects/taskboard"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'taskboard'}">Task Board</a>
+                    </li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'leads' }" class="tab-pane fade" id="v-pills-leads" role="tabpanel" aria-labelledby="v-pills-leads-tab">
+                <p>Leads</p>
+                <ul>
+                    <li routerLink="/layout/leads/leadscontent"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'leadscontent'}">Leads</a></li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'tickets' }" class="tab-pane fade" id="v-pills-tickets" role="tabpanel" aria-labelledby="v-pills-tickets-tab">
+                <p>Tickets</p>
+                <ul>
+                    <li routerLink="/layout/tickets/ticketscontent"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'ticketscontent'}">Tickets</a></li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'accounts' }" class="tab-pane fade" id="v-pills-sales" role="tabpanel" aria-labelledby="v-pills-sales-tab">
+                <p>Sales</p>
+                <ul>
+                    <li routerLink="/layout/accounts/estimates">
+                        <a href="javascript:"
+                            [ngClass]="{'active' : urlComplete.subUrl === 'estimates' || urlComplete.subUrl === 'estimates-view' || urlComplete.subUrl === 'create-estimates' || urlComplete.subUrl === 'edit-estimates?id=1'}">Estimates</a>
+                    </li>
+                    <li routerLink="/layout/accounts/invoices">
+                        <a href="javascript:"
+                            [ngClass]="{'active' : urlComplete.subUrl === 'invoices' || urlComplete.subUrl === 'invoice-view' || urlComplete.subUrl === 'create-invoice'  || urlComplete.subUrl === 'edit-invoice-report' || urlComplete.subUrl === 'edit-invoice?id=1'}">Invoices</a>
+                    </li>
+                    <li routerLink="/layout/accounts/payments">
+                        <a href="javascript:"
+                            [ngClass]="{'active' : urlComplete.subUrl === 'payments'}">Payments</a>
+                    </li>
+                    <li routerLink="/layout/accounts/expenses">
+                        <a href="javascript:"
+                            [ngClass]="{'active' : urlComplete.subUrl === 'expenses'}">Expenses</a>
+                    </li>
+                    <li routerLink="/layout/accounts/provident-fund">
+                        <a href="javascript:"
+                            [ngClass]="{'active' : urlComplete.subUrl === 'provident-fund'}">Provident Fund</a>
+                    </li>
+                    <li routerLink="/layout/accounts/taxes">
+                        <a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'taxes'}">Taxes</a>
+                    </li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'category' || urlComplete.mainUrl === 'budget' || urlComplete.mainUrl === 'budgetexpenses' || urlComplete.mainUrl === 'budgetrevenues'}" class="tab-pane fade" id="v-pills-accounting" role="tabpanel" aria-labelledby="v-pills-accounting-tab">
+                <p>Accounting</p>
+                <ul>
+                    <li routerLink="/layout/category/categories"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'categories'}">Categories</a></li>
+                    <li routerLink="/layout/budget/budgets"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'budgets'}">Budgets</a></li>
+                    <li routerLink="/layout/budgetexpenses/budget-expenses"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'budget-expenses'}">Budget Expenses</a></li>
+                    <li routerLink="/layout/budgetrevenues/budget-revenues"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'budget-revenues'}">Budget Revenues</a></li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'payroll' }" class="tab-pane fade" id="v-pills-payroll" role="tabpanel" aria-labelledby="v-pills-payroll-tab">
+                <p>Payroll</p>
+                <ul>
+                    <li routerLink="/layout/payroll/employee-salary">
+                        <a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'employee-salary'}">Employee Salary </a>
+                    </li>
+                    <li routerLink="/layout/payroll/salary-view">
+                        <a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'salary-view'}">Payslip </a>
+                    </li>
+                    <li routerLink="/layout/payroll/payroll-items">
+                        <a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'payroll-items'}">Payroll Items </a>
+                    </li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'policies' }" class="tab-pane fade" id="v-pills-policies" role="tabpanel" aria-labelledby="v-pills-policies-tab">
+                <p>Policies</p>
+                <ul>
+                    <li routerLink="/layout/policies/policies-main"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'policies-main'}"> Policies </a></li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.subUrl === 'invoice-report' || urlComplete.subUrl === 'expense-report' || urlComplete.subUrl === 'payments-reports' || urlComplete.subUrl === 'project-reports' || urlComplete.subUrl === 'task-reports' || urlComplete.subUrl === 'user-reports' || urlComplete.subUrl === 'daily-reports' || urlComplete.subUrl === 'leave-reports' || urlComplete.subUrl === 'attendance-reports' || urlComplete.subUrl === 'payslip-reports' || urlComplete.subUrl === 'employee-reports' }" class="tab-pane fade" id="v-pills-reports" role="tabpanel" aria-labelledby="v-pills-reports-tab">
+                <p>Reports</p>
+                <ul>
+                    <li routerLink="/layout/reports/expense-report">
+                        <a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'expense-report'}">Expense Report </a>
+                    </li>
+                    <li routerLink="/layout/reports/invoice-report">
+                        <a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'invoice-report'}">Invoice Report </a>
+                    </li>
+                    <li routerLink="/layout/paymentreports/payments-reports"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'payments-reports'}"> Payments Report </a></li>
+                    <li routerLink="/layout/projectreports/project-reports"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'project-reports'}"> Project Report </a></li>
+                    <li routerLink="/layout/taskreports/task-reports"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'task-reports'}"> Task Report </a></li>
+                    <li routerLink="/layout/userreports/user-reports"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'user-reports'}"> User Report </a></li>
+                    <li routerLink="/layout/employeereports/employee-reports"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'employee-reports'}"> Employee Report </a></li>
+                    <li routerLink="/layout/payslipreports/payslip-reports"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'payslip-reports'}"> Payslip Report </a></li>
+                    <li routerLink="/layout/attendancereports/attendance-reports"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'attendance-reports'}"> Attendance Report </a></li>
+                    <li routerLink="/layout/leavereports/leave-reports"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'leave-reports'}"> Leave Report </a></li>
+                    <li routerLink="/layout/dailyreports/daily-reports"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'daily-reports'}"> Daily Report </a></li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'performance' }" class="tab-pane fade" id="v-pills-performance" role="tabpanel" aria-labelledby="v-pills-performance-tab">
+                <p>Performance</p>
+                <ul>
+                    <li routerLink="/layout/performance/performanceindicator">
+                        <a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'performanceindicator'}"> Performance Indicator </a>
+                    </li>
+                    <li routerLink="/layout/performance/performancereview">
+                        <a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'performancereview'}"> Performance Review </a>
+                    </li>
+                    <li routerLink="/layout/performance/performanceappraisal">
+                        <a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'performanceappraisal'}"> Performance Appraisal </a>
+                    </li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'goals' }" class="tab-pane fade" id="v-pills-goals" role="tabpanel" aria-labelledby="v-pills-goals-tab">
+                <p>Goals</p>
+                <ul>
+                    <li routerLink="/layout/goals/goallist">
+                        <a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'goallist'}"> Goal List </a>
+                    </li>
+                    <li routerLink="/layout/goals/goaltype">
+                        <a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'goaltype'}"> Goal Type </a>
+                    </li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'training' }" class="tab-pane fade" id="v-pills-training" role="tabpanel" aria-labelledby="v-pills-training-tab">
+                <p>Training</p>
+                <ul>
+                    <li routerLink="/layout/training/traininglist">
+                        <a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'traininglist'}">Training List </a>
+                    </li>
+                    <li routerLink="/layout/training/trainers">
+                        <a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'trainers'}">Trainers</a>
+                    </li>
+                    <li routerLink="/layout/training/trainingtype">
+                        <a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'trainingtype'}">Training Type </a>
+                    </li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'promotion' }" class="tab-pane fade" id="v-pills-promotion" role="tabpanel" aria-labelledby="v-pills-promotion-tab">
+                <p>Promotion</p>
+                <ul>
+                    <li routerLink="/layout/promotion/promotionmain"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'promotionmain'}"> Promotion </a></li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'resignation' }" class="tab-pane fade" id="v-pills-resignation" role="tabpanel" aria-labelledby="v-pills-resignation-tab">
+                <p>Resignation</p>
+                <ul>
+                    <li routerLink="/layout/resignation/resignationmain"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'resignationmain'}"> Resignation </a></li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'termination' }" class="tab-pane fade" id="v-pills-termination" role="tabpanel" aria-labelledby="v-pills-termination-tab">
+                <p>Termination</p>
+                <ul>
+                    <li routerLink="/layout/termination/terminationmain"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'resignationmain'}">Termination </a></li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'assets' }" class="tab-pane fade" id="v-pills-assets" role="tabpanel" aria-labelledby="v-pills-assets-tab">
+                <p>Assets</p>
+                <ul>
+                    <li routerLink="/layout/assets/assets-main"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'assets-main'}"> Assets </a></li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 
+                'show active' : urlComplete.subUrl === 'user-dashboard' || urlComplete.subUrl === 'visited-jobs' || urlComplete.subUrl === 'offered-jobs' || urlComplete.subUrl === 'user-all-jobs' || urlComplete.subUrl === 'archived-jobs' || urlComplete.subUrl === 'applied-jobs' || urlComplete.subUrl === 'saved-jobs' || urlComplete.subUrl === 'interviewing'
+                || urlComplete.subUrl === 'jobs-dashboard' || urlComplete.subUrl === 'manage-jobs' || urlComplete.subUrl === 'job-details' || urlComplete.subUrl === 'job-applicants' || urlComplete.subUrl === 'manage-resumes'
+                || urlComplete.subUrl === 'shortlist-candidates' || urlComplete.subUrl === 'interview-questions' || urlComplete.subUrl === 'offer-approvals' || urlComplete.subUrl === 'experience-level' || urlComplete.subUrl === 'experience-level'
+                || urlComplete.subUrl === 'candidates' || urlComplete.subUrl === 'schedule-timing' || urlComplete.subUrl === 'aptitute-result'}" class="tab-pane fade" id="v-pills-jobs" role="tabpanel" aria-labelledby="v-pills-jobs-tab">
+                <p>Jobs</p>
+                <ul>
+                    <li routerLink="/layout/userdashboard/user-dashboard"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'user-dashboard' || urlComplete.subUrl === 'visited-jobs' || urlComplete.subUrl === 'offered-jobs' || urlComplete.subUrl === 'user-all-jobs' || urlComplete.subUrl === 'archived-jobs' || urlComplete.subUrl === 'applied-jobs' || urlComplete.subUrl === 'saved-jobs' || urlComplete.subUrl === 'interviewing'}"> User Dasboard </a></li>
+                    <li routerLink="/layout/jobsdashboard/jobs-dashboard"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'jobs-dashboard'}"> Jobs Dasboard </a></li>
+                    <li routerLink="/layout/jobs/manage-jobs"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'manage-jobs' || urlComplete.subUrl === 'job-details'}">Manage Jobs </a></li>
+                    <li routerLink="/layout/jobs/job-applicants"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'job-applicants'}">Applied Jobs </a></li>
+                    <li routerLink="/layout/manageresume/manage-resumes"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'manage-resumes'}"> Manage Resumes </a></li>
+                    <li routerLink="/layout/candidate/shortlist-candidates"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'shortlist-candidates'}"> Shortlist Candidates </a></li>
+                    <li routerLink="/layout/interview/interview-questions"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'interview-questions'}"> Interview Questions </a></li>
+                    <li routerLink="/layout/offer/offer-approvals"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'offer-approvals'}"> Offer Approvals </a></li>
+                    <li routerLink="/layout/experience/experience-level"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'experience-level'}"> Experience Level </a></li>
+                    <li routerLink="/layout/studentcandidate/candidates"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'candidates'}"> Candidates List </a></li>
+                    <li routerLink="/layout/scheduletiming/schedule-timing"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'schedule-timing'}"> Schedule timing </a></li>
+                    <li routerLink="/layout/aptitute/aptitute-result"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'aptitute-result'}"> Aptitude Results </a></li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'knowledgebase' }" class="tab-pane fade" id="v-pills-knowledgebase" role="tabpanel" aria-labelledby="v-pills-knowledgebase-tab">
+                <p>Knowledgebase</p>
+                <ul>
+                    <li routerLink="/layout/knowledgebase/knowledgebase-main"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'knowledgebase-main'}"> Knowledgebase </a></li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'activities' }" class="tab-pane fade" id="v-pills-activities" role="tabpanel" aria-labelledby="v-pills-activities-tab">
+                <p>Activities</p>
+                <ul>
+                    <li routerLink="/layout/activities/activities-main"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'activities-main'}"> Activities </a></li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'users' }" class="tab-pane fade" id="v-pills-users" role="tabpanel" aria-labelledby="v-pills-activities-tab">
+                <p>Users</p>
+                <ul>
+                    <li routerLink="/layout/users/user-main" *ngIf="toCheckAdmin(role)"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'user-main'}"> Users </a></li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'settings' }" class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                <p>Settings</p>
+                <ul>
+                    <li routerLink="/layout/settings/company-settings" *ngIf="toCheckAdmin(role)"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'company-settings'}"> Settings </a></li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.subUrl === 'employeeprofile' ||  urlComplete.subUrl === 'clientsprofile'}" class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                <p>Profile</p>
+                <ul>
+                    <li routerLink="/layout/employees/employeeprofile"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'employeeprofile'}">Employee Profile </a></li>
+                    <li routerLink="/layout/clients/clientsprofile/1"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'clientsprofile'}">Client Profile </a></li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'login' }"  class="tab-pane fade" id="v-pills-authentication" role="tabpanel" aria-labelledby="v-pills-authentication-tab">
+                <p>Authentication</p>
+                <ul>
+                    <li routerLink="/login"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'login'}"> Login</a></li>
+                    <li routerLink="/login/register"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'register'}">Register </a></li>
+                    <li routerLink="/login/forgot"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'forgot'}"> Forgot Password </a></li>
+                    <li routerLink="/login/otp"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'otp'}"> OTP </a></li>
+                    <li routerLink="/login/lockscreen"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'lockscreen'}"> Lock Screen </a></li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'error' }" class="tab-pane fade" id="v-pills-errorpages" role="tabpanel" aria-labelledby="v-pills-errorpages-tab">
+                <p>Error Pages</p>
+                <ul>
+                    <li routerLink="/error/error404"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'error404'}">404 Error </a></li>
+                    <li routerLink="/error/error500"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'error500'}">500 Error </a></li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'subscriptions' }" class="tab-pane fade" id="v-pills-subscriptions" role="tabpanel" aria-labelledby="v-pills-subscriptions-tab">
+                <p>Subscriptions</p>
+                <ul>
+                    <li routerLink="/layout/subscriptions/subscriptions-admin"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'subscriptions-admin'}">Subscriptions (Admin) </a></li>
+                    <li routerLink="/layout/subscriptions/subscriptions-company"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'subscriptions-company'}">Subscriptions (Company)</a></li>
+                    <li routerLink="/layout/subscriptions/subscribed-companies"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'subscribed-companies'}">Subscribed Companies </a></li>
+                </ul>
+            </div>
+            <div class="tab-pane fade" [ngClass]="{ 'show active' : urlComplete.mainUrl === 'pages' }" id="v-pills-pages" role="tabpanel" aria-labelledby="v-pills-pages-tab">
+                <p>Pages</p>
+                <ul>
+                    <li routerLink="/layout/pages/search"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'search'}"> Search</a></li>
+                    <li routerLink="/layout/pages/faq"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'faq'}"> FAQ </a></li>
+                    <li routerLink="/layout/pages/terms"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'terms'}"> Terms</a></li>
+                    <li routerLink="/layout/pages/privacy-policy"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'privacy-policy'}">Privacy Policy </a></li>
+                    <li routerLink="/layout/pages/blank-page"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'blank-page'}">Blank Page </a></li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'forms' }" class="tab-pane fade" id="v-pills-forms" role="tabpanel" aria-labelledby="v-pills-forms-tab">
+                <p>Forms</p>
+                <ul>
+                    <li routerLink="/layout/forms/basic-inputs"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'basic-inputs'}">Basic Inputs </a></li>
+                    <li routerLink="/layout/forms/input-groups"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'input-groups'}">Input Groups </a></li>
+                    <li routerLink="/layout/forms/horizontal-form"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'horizontal-form'}">Horizontal Form</a></li>
+                    <li routerLink="/layout/forms/vertical-form"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'vertical-form'}">Vertical Form </a></li>
+                    <li routerLink="/layout/forms/form-mask"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'form-mask'}"> Form Mask </a></li>
+                    <li routerLink="/layout/forms/form-validation"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'form-validation'}">Form Validation </a></li>
+                </ul>
+            </div>
+            <div [ngClass]="{ 'show active' : urlComplete.mainUrl === 'tables' }" class="tab-pane fade" id="v-pills-tables" role="tabpanel" aria-labelledby="v-pills-tables-tab">
+                <p>Tables</p>
+                <ul>
+                    <li routerLink="/layout/tables/basic-tables"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'basic-tables'}">Basic Tables </a></li>
+                    <li routerLink="/layout/tables/data-tables"><a href="javascript:" [ngClass]="{'active' : urlComplete.subUrl === 'data-tables'}">Data Table </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Sidebar -->
